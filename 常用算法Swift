@@ -1,0 +1,69 @@
+//冒泡排序O(N2)
+func bubbleSort<T: Comparable> (oArr: [T]) -> [T] {
+    var arr = oArr
+    for outerIndex in (1...arr.count - 1).reversed() {
+        for innerIndex in 0..<outerIndex {
+            if arr[innerIndex] > arr[innerIndex + 1] {
+                let temp = arr[innerIndex]
+                arr[innerIndex] = arr[innerIndex + 1]
+                arr[innerIndex + 1] = temp
+            }
+        }
+    }
+    return arr
+}
+
+//选择排序O(N)
+func selectSort<T: Comparable> (oArr: [T]) -> [T] {
+    var arr = oArr
+    var minIndex = 0 // 记录每次遍历的最小值位置
+    for outerIndex in 0..<arr.count {
+        minIndex = outerIndex
+        for innerIndex in (outerIndex + 1)..<arr.count {
+            if arr[minIndex] > arr[innerIndex] {
+                minIndex = innerIndex // 判断最小值,记住下表
+            }
+            if minIndex != outerIndex {
+                let temp = arr[outerIndex]
+                arr[outerIndex] = arr[minIndex]
+                arr[minIndex] = temp
+            }
+        }
+    }
+    return arr
+}
+
+//插入排序O(N2/4)
+func insertionSort<T: Comparable> (oArr: [T]) -> [T] {
+    var arr = oArr
+    for outerIndex in 1..<arr.count {
+        let temp = arr[outerIndex]
+        var innerIndex = outerIndex
+        while innerIndex > 0 && arr[innerIndex - 1] >= temp {
+            arr[innerIndex] = arr[innerIndex - 1]
+            innerIndex -= 1
+        }
+        arr[innerIndex] = temp
+    }
+    return arr
+}
+
+//快速排序O(N2)
+extension Array {
+    var decompose : (head: Element, tail: [Element])? {
+        return (count > 0) ? (self[0], Array(self[1..<count])) : nil
+    }
+}
+
+func quickSort<T: Comparable> (oArr: [T]) -> [T] {
+    let arr = oArr
+    if let (pivot, rest) = arr.decompose {
+        let lesser  = rest.filter { $0 < pivot }
+        let greater = rest.filter { $0 >= pivot }
+        let les = quickSort(oArr: lesser)
+        let gre = quickSort(oArr: greater)
+        return les + [pivot] + gre
+    } else {
+        return []
+    }
+}
