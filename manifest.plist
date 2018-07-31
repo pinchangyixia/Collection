@@ -11,7 +11,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>http://180.153.50.169:9088/ios/Walk-wifi-test.ipa</string>
+					<string>http://180.153.50.169:9080/iOS/Walk-wifi-test.ipa</string>
 					<key>New item</key>
 					<string></string>
 				</dict>
@@ -19,13 +19,13 @@
 					<key>kind</key>
 					<string>display-image</string>
 					<key>url</key>
-					<string>http://180.153.50.169:9088/ios/wifi57x57.png</string>
+					<string>http://180.153.50.169:9080/iOS/wifi57x57.png</string>
 				</dict>
 				<dict>
 					<key>kind</key>
 					<string>full-size-image</string>
 					<key>url</key>
-					<string>http://180.153.50.169:9088/ios/wifi512x512.png</string>
+					<string>http://180.153.50.169:9080/iOS/wifi512x512.png</string>
 				</dict>
 			</array>
 			<key>metadata</key>
